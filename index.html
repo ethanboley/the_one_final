@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Senior Project</h1>
+        <div id="drop-zone">
+            <p>Drag & Drop files here or click to select</p>
+            <input type="file" id="file-input" multiple hidden>
+        </div>
+        <div id="file-list"></div>
+        <div id="python-output"></div>
+    </div>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-env>
+        # Add Python packages here if needed, e.g.,
+        # - pandas
+        # - numpy
+    </py-env>
+    <py-script>
+        import js
+
+        def analyze_file(file_content, filename):
+            js.console.log(f"Python received file: {filename}")
+            js.console.log(f"Content snippet: {file_content[:100]}...")
+            analysis_result = f"Analysis of '{filename}' completed in Python. Content length: {len(file_content)} chars."
+            js.document.getElementById('python-output').innerHTML = f"<h3>Analysis Result:</h3><p>{analysis_result}</p>"
+            return analysis_result
+
+        print("Hello from PyScript! Python environment ready.")
+    </py-script>
+    <script src="app.js"></script>
+</body>
+</html>

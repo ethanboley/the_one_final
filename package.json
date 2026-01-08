@@ -1,0 +1,13 @@
+{
+  "name": "senior-project",
+  "version": "1.0.0",
+  "description": "A basic webapp with a file dropbox.",
+  "main": "app.js",
+  "scripts": {
+    "start": "tsc --watch",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
