@@ -1,3 +1,4 @@
+
 # Senior Project - File Analyzer
 
 This is a client-side web application that allows users to drop files, which are then analyzed directly in the browser using Python via PyScript. It's designed for static hosting platforms like GitHub Pages.
@@ -30,4 +31,5 @@ This application is ideal for deployment on GitHub Pages.
 1.  Ensure all your changes are committed to your repository.
 2.  Build your project (if any specific build steps are needed beyond `tsc`).
 3.  Follow GitHub's instructions for deploying a static site, typically by pushing your compiled assets to a `gh-pages` branch or configuring the `main` branch's `/docs` folder.
+
 
