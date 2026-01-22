@@ -69,3 +69,4 @@ function handleFiles(files: FileList | null) {
         reader.readAsText(file); // Read file content as text
     }
 }
+export {};

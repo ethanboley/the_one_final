@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "module": "commonjs",
+    "module": "ES2020",
     "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./scripts"
   },
-  "files": [
-    "app.ts"
+  "include": [
+    "scripts/typescript/app.ts"
   ]
 }
