@@ -222,3 +222,6 @@ git checkout <commit-hash> -- path/to/file
 4. Remove conflict markers
 5. `git add` the resolved files
 6. `git commit` to complete the merge
+
+
+#### Never modify this file unless explicitly asked to do so.
