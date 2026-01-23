@@ -1,10 +1,22 @@
-import js
 
-def analyze_file(file_content, filename):
-    js.console.log(f"Python received file: {filename}")
-    js.console.log(f"Content snippet: {file_content[:100]}...")
-    analysis_result = f"Analysis of '{filename}' completed in Python. Content length: {len(file_content)} chars."
-    js.document.getElementById('python-output').innerHTML = f"<h3>Analysis Result:</h3><p>{analysis_result}</p>"
-    return analysis_result
 
-print("Hello from PyScript! Python environment ready.")
+
+from pyscript import document
+from pyodide.ffi import create_proxy
+
+def analyze_file(file_content, file_name):
+    """
+    Analyzes the content of a file.
+
+    Args:
+        file_content (str): The content of the file.
+        file_name (str): The name of the file.
+    """
+    print(f"File: {file_name}")
+    print(f"Content: {file_content[:100]}...")
+
+    # Example of interacting with the DOM
+    output_div = document.getElementById("output")
+    output_div.innerHTML += f"<p>Analyzed: {file_name}</p>"
+
+

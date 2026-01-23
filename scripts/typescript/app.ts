@@ -1,3 +1,6 @@
+
+
+
 declare global {
     interface Window {
         pyscript: any; // Or a more specific type if available
@@ -40,6 +43,11 @@ if (dropZone && fileInput && fileList) {
     });
 }
 
+/**
+ * Handles the file drop event.
+ *
+ * @param files The files that were dropped.
+ */
 function handleFiles(files: FileList | null) {
     if (!files || files.length === 0) {
         return;
@@ -70,3 +78,5 @@ function handleFiles(files: FileList | null) {
     }
 }
 export {};
+
+

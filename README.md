@@ -1,7 +1,7 @@
 
-# Senior Project - File Analyzer
+# Parallel Resource Insight Synthesis Machine (PRISM)
 
-This is a client-side web application that allows users to drop files, which are then analyzed directly in the browser using Python via PyScript. It's designed for static hosting platforms like GitHub Pages.
+The general idea of this application is a client-side file analizer web application that allows users to drop files, which are then analyzed directly in the browser using Python via PyScript. It's designed for static hosting platforms like GitHub Pages.
 
 ## Setup
 

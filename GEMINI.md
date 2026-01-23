@@ -140,12 +140,13 @@ Use semantic versioning: `v[major].[minor].[patch]`
 
 ## Code Style & Standards
 
-### TypeScript
+### General
 - Use meaningful variable names (descriptive over clever preferably both)
 - Keep functions small and focused with one responsibility each (names should be or start with verbs)
 - Include after function and method declarations, descriptive and complete docstrings
 - Use TypeScript types consistently
 - Use 4 spaces as indent
+- Add 1 blank line at the beginning and the end of each file.
 
 ### Comments
 - Explain WHY, not WHAT
@@ -160,9 +161,10 @@ const debouncedSearch = debounce(searchAPI, 300);
 ```
 
 **Bad comment:**
-```typescript
-// This function adds two numbers
-function add(a, b) { return a + b; }
+```python
+# This function adds two numbers
+def add(a, b): 
+    return a + b
 ```
 
 ## Development Guidelines
