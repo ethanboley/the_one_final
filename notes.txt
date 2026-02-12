@@ -1,0 +1,21 @@
+
+to run locally: 
+
+./start-server.ps1
+
+# cURL Quickstart for Gemini API:
+# curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent" \
+#   -H 'Content-Type: application/json' \
+#   -H 'X-goog-api-key: AIzaSyBm0your8tzfTxmPbT2AMv2_VodZgwkRFo' \
+#   -X POST \
+#   -d '{
+#     "contents": [
+#       {
+#         "parts": [
+#           {
+#             "text": "Explain how AI works in a few words"
+#           }
+#         ]
+#       }
+#     ]
+#   }'

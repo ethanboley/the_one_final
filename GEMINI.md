@@ -153,6 +153,7 @@ Use semantic versioning: `v[major].[minor].[patch]`
 - Comment complex logic, not obvious code
 - Update existing related comments when code changes
 - Only use inline comments when single word temporary tagging is needed or on exceptionally complex single line logic such as lambda functions
+- This is just a personal project so feel free to make comments entertaining where you can (like whitty or sarcsatic)
 
 **Good comment:**
 ```typescript

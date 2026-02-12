@@ -1,9 +1,7 @@
 
-
-
 declare global {
     interface Window {
-        pyscript: any; // Or a more specific type if available
+        analyze_file: (content: string, name: string) => Promise<void>;
     }
 }
 
@@ -48,7 +46,7 @@ if (dropZone && fileInput && fileList) {
  *
  * @param files The files that were dropped.
  */
-function handleFiles(files: FileList | null) {
+async function handleFiles(files: FileList | null) {
     if (!files || files.length === 0) {
         return;
     }
@@ -57,26 +55,40 @@ function handleFiles(files: FileList | null) {
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
         console.log(`File added: ${file.name}, Size: ${file.size}`);
+        
         const p = document.createElement('p');
         p.textContent = `${file.name} (${(file.size / 1024).toFixed(2)} KB)`;
         fileList.appendChild(p);
 
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const fileContent = e.target?.result as string;
-            // Ensure pyscript is loaded before attempting to call Python functions
-            if (window.pyscript && window.pyscript.interpreter) {
-                window.pyscript.interpreter.globals.get('analyze_file')(fileContent, file.name);
+        try {
+            const fileContent = await readFileAsText(file);
+            
+            // Call the globally exported Python function
+            if (typeof window.analyze_file === 'function') {
+                window.analyze_file(fileContent, file.name);
             } else {
-                console.error("PyScript interpreter not ready.");
+                console.error("Python analyze_file function not found on window.");
+                const errP = document.createElement('p');
+                errP.style.color = 'red';
+                errP.textContent = "Error: Python analysis engine is still initializing. Please wait a few seconds.";
+                fileList.appendChild(errP);
             }
-        };
-        reader.onerror = (e) => {
-            console.error("Error reading file:", e.target?.error);
-        };
-        reader.readAsText(file); // Read file content as text
+        } catch (error) {
+            console.error(`Error reading ${file.name}:`, error);
+        }
     }
 }
+
+/**
+ * Helper to read file as text using Promises
+ */
+function readFileAsText(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target?.result as string);
+        reader.onerror = (e) => reject(e.target?.error);
+        reader.readAsText(file);
+    });
+}
+
 export {};
-
-

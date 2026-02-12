@@ -4,28 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior Project</title>
+    <title>P.R.I.S.M. - Senior Project</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Senior Project</h1>
-        <div id="drop-zone">
+        <h1>P.R.I.S.M.</h1>
+        
+        <!-- Loading indicator -->
+        <div id="loading-overlay">
+            <div class="spinner"></div>
+            <p>Initializing Python Engine...</p>
+        </div>
+
+        <div id="drop-zone" class="hidden">
             <p>Drag & Drop files here or click to select</p>
             <input type="file" id="file-input" multiple hidden>
         </div>
+        
         <div id="file-list"></div>
-        <div id="python-output"></div>
         <div id="output"></div>
     </div>
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-env>
-        # Add Python packages here if needed, e.g.,
-        # - pandas
-        # - numpy
-    </py-env>
-    <py-script src="scripts/python/main.py"></py-script>
+    
+    <script type="py" src="scripts/python/main.py" config='{"packages": []}'></script>
     <script type="module" src="dist/typescript/app.js"></script>
 </body>
 </html>
